@@ -1,5 +1,6 @@
 #ifndef ENGINE_H
 #define ENGINE_H
+#define GLM_ENABLE_EXPERIMENTAL
 
 #include <sys/time.h>
 #include <assert.h>
@@ -11,6 +12,7 @@ class Engine
 {
   public:
     Engine(string name, int width, int height);
+    Engine(string name, int width, int height, std::string vertexFile, std::string fragmentFile);
     Engine(string name);
     ~Engine();
     bool Initialize();
@@ -27,6 +29,10 @@ class Engine
     int m_WINDOW_HEIGHT;
     bool m_FULLSCREEN;
     SDL_Event m_event;
+
+    // Shader related variables
+    std::string m_vertexFile;
+    std::string m_fragmentFile;
 
     Graphics *m_graphics;
     unsigned int m_DT;

@@ -5,6 +5,12 @@ Graphics::Graphics()
 
 }
 
+Graphics::Graphics(std::string vertexFile, std::string fragmentFile)
+{
+  m_vertexFile = vertexFile;
+  m_fragmentFile = fragmentFile;
+}
+
 Graphics::~Graphics()
 {
 
@@ -48,7 +54,7 @@ bool Graphics::Initialize(int width, int height)
   m_cube = new Object();
 
   // Set up the shaders
-  m_shader = new Shader();
+  m_shader = new Shader(m_vertexFile, m_fragmentFile);
   if(!m_shader->Initialize())
   {
     printf("Shader Failed to Initialize\n");

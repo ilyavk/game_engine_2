@@ -1,5 +1,6 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
+#define GLM_ENABLE_EXPERIMENTAL
 
 #include <iostream>
 using namespace std;
@@ -13,6 +14,7 @@ class Graphics
 {
   public:
     Graphics();
+    Graphics(std::string vertexFile, std::string fragmentFile);
     ~Graphics();
     bool Initialize(int width, int height);
     void Update(unsigned int dt);
@@ -29,6 +31,9 @@ class Graphics
     GLint m_modelMatrix;
 
     Object *m_cube;
+
+    std::string m_vertexFile;
+    std::string m_fragmentFile;
 };
 
 #endif /* GRAPHICS_H */
